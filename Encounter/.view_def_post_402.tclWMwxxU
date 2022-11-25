@@ -1,0 +1,2 @@
+#set_analysis_view -setup {MAXview} -hold {MINview}
+

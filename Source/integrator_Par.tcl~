@@ -1,0 +1,172 @@
+#######################################################
+#                                                     #
+#  Encounter Command Logging File                     #
+#  Created on Sun Oct 30 01:55:56 2022                #
+#                                                     #
+#######################################################
+
+#@(#)CDS: Encounter v13.10-p003_1 (32bit) 04/17/2013 15:43 (Linux 2.6)
+#@(#)CDS: NanoRoute v13.10-p002 NR130329-0035/13_10-UB (database version 2.30, 190.4.1) {superthreading v1.19}
+#@(#)CDS: CeltIC v13.10-p007_1 (32bit) 04/10/2013 11:52:21 (Linux 2.6.18-194.el5)
+#@(#)CDS: AAE 13.10-p003 (32bit) 04/17/2013 (Linux 2.6.18-194.el5)
+#@(#)CDS: CTE 13.10-p009_1 (32bit) Apr 10 2013 05:45:06 (Linux 2.6.18-194.el5)
+#@(#)CDS: CPE v13.10-p010
+#@(#)CDS: IQRC/TQRC 12.1.0-s388 (32bit) Fri Mar 29 14:17:34 PDT 2013 (Linux 2.6.18-194.el5)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+win
+save_global Default.globals
+set init_gnd_net VSS
+set init_lef_file {/media/Disk/Cadence/Libs/X_FAB/XKIT/xt018/cadence/v5_0/techLEF/v5_0_2/xt018_xx43_MET4_METMID_METTHK.lef /media/Disk/Cadence/Libs/X_FAB/XKIT/xt018/diglibs/D_CELLS_5V/v5_0/LEF/v5_0_1/xt018_D_CELLS_5V.lef}
+set init_design_settop 0
+set init_verilog ../Source/Top_synth.v
+set init_mmmc_file ../Scripts/MMMC.tcl
+set init_pwr_net VDD
+create_constraint_mode -name CONSTRAINTS -sdc_files {../Source/Top_syn_out.sdc}
+create_library_set -name SLOWlib \
+-timing {/media/Disk/Cadence/Libs/X_FAB/XKIT/xt018/diglibs/D_CELLS_5V/v5_0/liberty_LP5MOS_MOS5/v5_0_0/PVT_3_30V_range/D_CELLS_5V_LP5MOS_MOS5_slow_3_00V_175C.lib}
+create_library_set -name TYPlib \
+-timing {/media/Disk/Cadence/Libs/X_FAB/XKIT/xt018/diglibs/D_CELLS_5V/v5_0/liberty_LP5MOS_MOS5/v5_0_0/PVT_3_30V_range/D_CELLS_5V_LP5MOS_MOS5_typ_3_30V_25C.lib}
+create_library_set -name FASTlib \
+-timing {/media/Disk/Cadence/Libs/X_FAB/XKIT/xt018/diglibs/D_CELLS_5V/v5_0/liberty_LP5MOS_MOS5/v5_0_0/PVT_3_30V_range/D_CELLS_5V_LP5MOS_MOS5_fast_3_60V_m40C.lib}
+create_op_cond -name PVT_slow_3_00V_175C \
+-library_file {/media/Disk/Cadence/Libs/X_FAB/XKIT/xt018/diglibs/D_CELLS_5V/v5_0/liberty_LP5MOS_MOS5/v5_0_0/PVT_3_30V_range/D_CELLS_5V_LP5MOS_MOS5_slow_3_00V_175C.lib} \
+-P {1} -V {3} -T {175}
+create_op_cond -name PVT_typ_3_30V_25C \
+-library_file {/media/Disk/Cadence/Libs/X_FAB/XKIT/xt018/diglibs/D_CELLS_5V/v5_0/liberty_LP5MOS_MOS5/v5_0_0/PVT_3_30V_range/D_CELLS_5V_LP5MOS_MOS5_typ_3_30V_25C.lib} \
+-P {1} -V {3.3} -T {25}
+create_op_cond -name PVT_fast_3_60V_-40C \
+-library_file {/media/Disk/Cadence/Libs/X_FAB/XKIT/xt018/diglibs/D_CELLS_5V/v5_0/liberty_LP5MOS_MOS5/v5_0_0/PVT_3_30V_range/D_CELLS_5V_LP5MOS_MOS5_fast_3_60V_m40C.lib} \
+-P {1} -V {3.6} -T {-40}
+create_rc_corner -name RCcornerMIN \
+-cap_table /media/Disk/Cadence/Libs/X_FAB/XKIT/xt018/cadence/v5_0/capTbl/v5_0_1_2/xt018_xx43_MET4_METMID_METTHK_min.capTbl \
+-qx_tech_file /media/Disk/Cadence/Libs/X_FAB/XKIT/xt018/cadence/v7_0/QRC_pvs/v7_0_3/XT018_1243/QRC-Min/qrcTechFile
+create_rc_corner -name RCcornerTYP \
+-cap_table /media/Disk/Cadence/Libs/X_FAB/XKIT/xt018/cadence/v5_0/capTbl/v5_0_1_2/xt018_xx43_MET4_METMID_METTHK_typ.capTbl \
+-qx_tech_file /media/Disk/Cadence/Libs/X_FAB/XKIT/xt018/cadence/v7_0/QRC_pvs/v7_0_3/XT018_1243/QRC-Typ/qrcTechFile
+create_rc_corner -name RCcornerMAX \
+-cap_table /media/Disk/Cadence/Libs/X_FAB/XKIT/xt018/cadence/v5_0/capTbl/v5_0_1_2/xt018_xx43_MET4_METMID_METTHK_max.capTbl \
+-qx_tech_file /media/Disk/Cadence/Libs/X_FAB/XKIT/xt018/cadence/v7_0/QRC_pvs/v7_0_3/XT018_1243/QRC-Max/qrcTechFile
+create_delay_corner -name DELAYcornerSLOW \
+-library_set SLOWlib \
+-rc_corner RCcornerMAX
+create_delay_corner -name DELAYcornerTYP \
+-library_set TYPlib \
+-rc_corner RCcornerTYP
+create_delay_corner -name DELAYcornerFAST \
+-library_set FASTlib \
+-rc_corner RCcornerMIN
+create_analysis_view -name MAXview \
+-delay_corner {DELAYcornerSLOW} \
+-constraint_mode {CONSTRAINTS}
+create_analysis_view -name TYPview \
+-delay_corner {DELAYcornerTYP} \
+-constraint_mode {CONSTRAINTS}
+create_analysis_view -name MINview \
+-delay_corner {DELAYcornerFAST} \
+-constraint_mode {CONSTRAINTS}
+set_analysis_view -setup {MAXview} -hold {MINview}
+init_design
+getIoFlowFlag
+setIoFlowFlag 0
+floorPlan -fplanOrigin center -site core_5v -r 1 0.7 10.08 10.37 10.08 10.37
+uiSetTool select
+getIoFlowFlag
+fit
+clearGlobalNets
+globalNetConnect VDD -type pgpin -pin vdd5 -inst * -module {}
+globalNetConnect VDD -type tiehi -pin vdd5 -inst * -module {}
+globalNetConnect VDD -type tielo -pin vdd5 -inst * -module {}
+globalNetConnect VSS -type pgpin -pin gnd -inst * -module {}
+globalNetConnect VSS -type tiehi -pin gnd -inst * -module {}
+globalNetConnect VSS -type tielo -pin gnd -inst * -module {}
+set sprCreateIeRingNets {}
+set sprCreateIeRingLayers {}
+set sprCreateIeRingWidth 1.0
+set sprCreateIeRingSpacing 1.0
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+addRing -stacked_via_top_layer METTPL -around core -jog_distance 3.15 -threshold 3.15 -nets {VSS VDD} -stacked_via_bottom_layer MET1 -layer {bottom MET1 top MET1 right MET2 left MET2} -width 3 -spacing {bottom 0.23 top 0.23 right 0.28 left 0.28} -offset 3.15
+set sprCreateIeStripeNets {}
+set sprCreateIeStripeLayers {}
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeSpacing 2.0
+set sprCreateIeStripeThreshold 1.0
+addStripe -block_ring_top_layer_limit MET3 -max_same_layer_jog_length 6 -padcore_ring_bottom_layer_limit MET1 -set_to_set_distance 100 -stacked_via_top_layer METTPL -padcore_ring_top_layer_limit MET3 -spacing 2.5 -merge_stripes_value 3.15 -layer MET2 -block_ring_bottom_layer_limit MET1 -width 3 -nets {VDD VSS} -stacked_via_bottom_layer MET1
+sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { MET1 METTPL } -blockPinTarget { nearestRingStripe nearestTarget } -padPinPortConnect { allPort oneGeom } -stripeSCpinTarget { blockring padring ring stripe ringpin blockpin } -checkAlignedSecondaryPin 1 -blockPin useLef -allowJogging 1 -crossoverViaBottomLayer MET1 -allowLayerChange 1 -targetViaTopLayer METTPL -crossoverViaTopLayer METTPL -targetViaBottomLayer MET1 -nets { VDD VSS }
+editPowerVia -bottom_layer MET1 -add_vias 1 -top_layer METTPL
+set sprEpvLayers {}
+redirect -quiet {set honorDomain [getAnalysisMode -honorClockDomains]} > /dev/null
+timeDesign -prePlace -idealClock -pathReports -drvReports -slackReports -numPaths 50 -prefix integator_prePlace -outDir timingReports
+setMultiCpuUsage -localCpu 1 -cpuPerRemoteHost 1 -remoteHost 0 -keepLicense true
+setDistributeHost -lsf
+setPlaceMode -fp false
+placeDesign -inPlaceOpt -prePlaceOpt
+redirect -quiet {set honorDomain [getAnalysisMode -honorClockDomains]} > /dev/null
+timeDesign -preCTS -idealClock -pathReports -drvReports -slackReports -numPaths 50 -prefix integator_preCTS -outDir timingReports
+setOptMode -fixCap true -fixTran true -fixFanoutLoad true
+optDesign -preCTS
+redirect -quiet {set honorDomain [getAnalysisMode -honorClockDomains]} > /dev/null
+timeDesign -preCTS -idealClock -pathReports -drvReports -slackReports -numPaths 50 -prefix integator_preCTS -outDir timingReports
+createClockTreeSpec -bufferList {BU_5VX0 BU_5VX1 BU_5VX12 BU_5VX16 BU_5VX2 BU_5VX3 BU_5VX4 BU_5VX6 BU_5VX8 DLY1_5VX1 DLY2_5VX1 DLY4_5VX1 DLY8_5VX1 IN_5VX0 IN_5VX1 IN_5VX12 IN_5VX16 IN_5VX2 IN_5VX3 IN_5VX4 IN_5VX6 IN_5VX8 STE_5VX1 STE_5VX2 STE_5VX3 STE_5VX4 ST_5VX1 ST_5VX2 ST_5VX3 ST_5VX4} -file Clock.ctstch
+setCTSMode -engine ck
+clockDesign -specFile Clock.ctstch -outDir clock_report -fixedInstBeforeCTS
+redirect -quiet {set honorDomain [getAnalysisMode -honorClockDomains]} > /dev/null
+timeDesign -postCTS -pathReports -drvReports -slackReports -numPaths 50 -prefix integator_postCTS -outDir tReports_postCTS
+setOptMode -fixCap true -fixTran true -fixFanoutLoad true
+optDesign -postCTS
+selectWire -31.4900 23.8100 -28.6900 24.0900 3 stage1/final_adder_mul_20_19/FE_OCPN1573_n_26
+deselectAll
+selectInst stage1/final_adder_mul_20_19/FE_RC_336_0
+deselectAll
+selectWire -60.3550 -171.9100 -57.3550 171.9100 2 VSS
+deselectAll
+selectInst stage1/FE_RC_1485_0
+deselectAll
+selectWire -165.8550 35.4400 165.6650 36.2400 1 VSS
+deselectAll
+selectInst stage1/csa_tree_mul_20_19/g2335
+deselectAll
+selectInst {reg_delay2/Q_reg[1]}
+setLayerPreference pinObj -isVisible 1
+setLayerPreference cellBlkgObj -isVisible 1
+setLayerPreference layoutObj -isVisible 1
+setLayerPreference pinObj -isVisible 0
+setLayerPreference cellBlkgObj -isVisible 0
+setLayerPreference layoutObj -isVisible 0
+setLayerPreference pinObj -isSelectable 1
+setLayerPreference cellBlkgObj -isSelectable 1
+setLayerPreference layoutObj -isSelectable 1
+setLayerPreference pinObj -isSelectable 0
+setLayerPreference cellBlkgObj -isSelectable 0
+setLayerPreference layoutObj -isSelectable 0
+setLayerPreference pinObj -isSelectable 1
+setLayerPreference cellBlkgObj -isSelectable 1
+setLayerPreference layoutObj -isSelectable 1
+setLayerPreference pinObj -isSelectable 0
+setLayerPreference cellBlkgObj -isSelectable 0
+setLayerPreference layoutObj -isSelectable 0
+setLayerPreference pwrdm -isVisible 0
+setLayerPreference netRect -isVisible 0
+setLayerPreference substrateNoise -isVisible 0
+setLayerPreference powerNet -isVisible 0
+setLayerPreference pwrdm -isSelectable 0
+setLayerPreference netRect -isSelectable 0
+setLayerPreference substrateNoise -isSelectable 0
+setLayerPreference powerNet -isSelectable 0
+setLayerPreference pwrdm -isVisible 1
+setLayerPreference netRect -isVisible 1
+setLayerPreference substrateNoise -isVisible 1
+setLayerPreference powerNet -isVisible 1
+setLayerPreference pwrdm -isSelectable 1
+setLayerPreference netRect -isSelectable 1
+setLayerPreference substrateNoise -isSelectable 1
+setLayerPreference powerNet -isSelectable 1
+deselectAll
+selectInst FE_OCPC1045_input__21_
+deselectAll
+selectInst stage1/addinc_add_23_43_3/FE_RC_335_0
+deselectAll
+selectInst stage1/final_adder_mul_20_19/FE_RC_1197_0

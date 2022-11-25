@@ -1,0 +1,33 @@
+## Setup technology files
+include ../Scripts/X.tcl
+
+# Setup variables
+set DESIGN integator
+set PARAMS {}
+
+# Read in Verilog HDL files
+read_hdl -v2001 ../Source/Integrator.v
+
+
+# Compile our code
+elaborate -parameters $PARAMS $DESIGN
+
+# Setup design constraints
+read_sdc ../Source/integrator.sdc
+
+## Synthesize our schematic
+synthesize -to_mapped
+synthesize -incremental
+
+# Write out area and timing reports
+report timing > ../Reports/Top_synth_timing_report
+report area > ../Reports/Top_synth_area_report
+
+# Write out netlist
+write_hdl -mapped > ../Source/Top_synth.v
+
+# Write out SDC file
+write_sdc > ../Source/Top_syn_out.sdc
+
+gui_show
+
