@@ -44,7 +44,7 @@ set init_lef_file {/Cadence/Libs/X_FAB/XKIT/xt018/cadence/v5_0/techLEF/v5_0_2/xt
 set init_design_settop 0
 set init_verilog ../Outputs/Synthesis/Synth.v
 set init_mmmc_file ../Scripts/MMMC.tcl
-set init_io_file ../Source/Pinmap
+set init_io_file ../Scripts/Pinmap
 set init_pwr_net VDD
 init_design
 getIoFlowFlag

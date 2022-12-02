@@ -25,7 +25,7 @@ read_hdl -v2001 ../Source/integrator.v
 elaborate -parameters $PARAMS $DESIGN
 
 # Setup design constraints
-read_sdc ../Source/integrator.sdc
+read_sdc ../Scripts/integrator.sdc
 
 ## Synthesize our schematic
 synthesize -to_mapped

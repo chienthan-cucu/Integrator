@@ -5,13 +5,13 @@
 ### Tools:   RTL_Compiler 14.2
 ###
 ### Stage: RTL Synthesis
-### File description: RTL Synthesis for worst case
+### File description: RTL Synthesis for type case
 ###
 ### Work Directory: ../RTL_Compiler
-### Run command: RTL_Compiler ../Scripts/integrator_syn_max.tcl
+### Run command: RTL_Compiler ../Scripts/integrator_syn_type.tcl
 
 ## Setup technology files
-include ../Scripts/XFAB_slow.tcl
+include ../Scripts/XFAB_typ.tcl
 
 # Setup variables
 set DESIGN Integrator
@@ -25,21 +25,21 @@ read_hdl -v2001 ../Source/integrator.v
 elaborate -parameters $PARAMS $DESIGN
 
 # Setup design constraints
-read_sdc ../Source/integrator.sdc
+read_sdc ../Scripts/integrator.sdc
 
 ## Synthesize our schematic
 synthesize -to_mapped
 synthesize -incremental
 
 # Write out area and timing reports
-report timing > ../Reports/Synth_timing_report_max
-report area > ../Reports/Synth_area_report_max
+report timing > ../Reports/Synth_timing_report
+report area > ../Reports/Synth_area_report
 
 # Write out netlist
-write_hdl -mapped > ../Output/Synthesis/Synth_max.v
+write_hdl -mapped > ../Outputs/Synthesis/Synth.v
 
 # Write out SDC file
-write_sdc > ../Output/Synthesis/Synth_out_max.sdc
+write_sdc > ../Outputs/Synthesis/Synth_out.sdc
 
 gui_show
 
