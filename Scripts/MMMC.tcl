@@ -11,7 +11,7 @@
 ### Run command: set init_mmmc_file ../Scripts/MMMC.tcl
 
 ## Timing constraints file from the synthesis
-create_constraint_mode -name CONSTRAINTS -sdc_files {../Source/integrator.sdc}
+create_constraint_mode -name CONSTRAINTS -sdc_files {../Scripts/integrator.sdc}
 ## Create timing library sets
 # The slowest corner
 create_library_set -name SLOWlib \

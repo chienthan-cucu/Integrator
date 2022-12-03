@@ -5,14 +5,14 @@
 ### Tools:   Encounter 14.28
 ###
 ### Stage: Import physical pin map
-### File description: 47 pin: clk,clk_enable, reset, In[0..21], Out[21..0].
+### File description: 47 pin: clk, reset, In[0..21], Out[21..0].
 ###
 ### Work Directory: ../Encounter
 ### Run command: set init_io_file ../Source/Pinmap
 
 Offset: 10
 Pin: clk W MET4
-Spacing: 10
+Spacing: 20
 Pin: In[0] W MET4
 Pin: In[1] W MET4
 Pin: In[2] W MET4
@@ -23,11 +23,10 @@ Pin: In[6] W MET4
 Pin: In[7] W MET4
 Pin: In[8] W MET4
 Pin: In[9] W MET4
-Pin: clk_enable W MET4
 
 Offset: 10
 Pin: In[10] N MET4
-Spacing: 10
+Spacing: 20
 Pin: In[11] N MET4
 Pin: In[12] N MET4
 Pin: In[13] N MET4
@@ -42,7 +41,7 @@ Pin: In[21] N MET4
 
 Offset: 10
 Pin: reset E MET4
-Spacing: 10
+Spacing: 20
 Pin: Out[0] E MET4
 Pin: Out[1] E MET4
 Pin: Out[2] E MET4
@@ -56,7 +55,7 @@ Pin: Out[9] E MET4
 
 Offset: 10
 Pin: Out[10] S MET4
-Spacing: 10
+Spacing: 20
 Pin: Out[11] S MET4
 Pin: Out[12] S MET4
 Pin: Out[13] S MET4

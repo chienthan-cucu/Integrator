@@ -44,7 +44,7 @@ set init_lef_file {/Cadence/Libs/X_FAB/XKIT/xt018/cadence/v5_0/techLEF/v5_0_2/xt
 set init_design_settop 0
 set init_verilog ../Outputs/Synthesis/Synth.v
 set init_mmmc_file ../Scripts/MMMC.tcl
-set init_io_file ../Source/Pinmap
+set init_io_file ../Scripts/Pinmap
 set init_pwr_net VDD
 init_design
 getIoFlowFlag
@@ -140,6 +140,8 @@ timeDesign -signoff -hold -pathReports -slackReports -numPaths 50 -prefix Integr
 all_hold_analysis_views 
 all_setup_analysis_views 
 write_sdf -view TYPview ../Outputs/integrator.sdf
+#write_sdf -view MINview ../Outputs/integrator_min.sdf
+#write_sdf -view MAXview ../Outputs/integrator_max.sdf
 saveNetlist ../Outputs/netlist.v -includePhysicalCell {FEED7_5V FEED5_5V FEED3_5V FEED2_5V FEED25_5V FEED1_5V FEED15_5V}
 global dbgLefDefOutVersion
 set dbgLefDefOutVersion 5.8

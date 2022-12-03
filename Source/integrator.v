@@ -8,19 +8,16 @@
 module Integrator
           (clk,
            reset,
-           clk_enable,
            In,
            Out);
 
 
   input   clk;
   input   reset;
-  input   clk_enable;
   input   signed [21:0] In;  // sfix22_En10
   output  signed [21:0] Out;  // sfix22_En20
 
 
-  wire enb;
   wire [10:0] Constant_out1;  // ufix11_En10
   wire signed [11:0] Product_cast;  // sfix12_En10
   wire signed [33:0] Product_mul_temp;  // sfix34_En20
@@ -65,19 +62,19 @@ module Integrator
 
   assign Constant1_out1 = 11'b10100100010;
 
-
-
-  assign enb = clk_enable;
-
-  always @(negedge clk or posedge reset)
+  always @(posedge clk or posedge reset)
     begin : Delay_process
       if (reset == 1'b1) begin
         Delay_out1 <= 22'sb0000000000000000000000;
+	Delay1_out1 <= 22'sb0000000000000000000000;
+        Delay2_reg[0] <= 22'sb0000000000000000000000;
+        Delay2_reg[1] <= 22'sb0000000000000000000000;
       end
       else begin
-        if (enb) begin
-          Delay_out1 <= In;
-        end
+        Delay_out1 <= In;
+        Delay1_out1 <= Delay_out1;
+        Delay2_reg[0] <= Delay2_reg_next[0];
+        Delay2_reg[1] <= Delay2_reg_next[1];
       end
     end
 
@@ -101,18 +98,6 @@ module Integrator
 
 
 
-  always @(negedge clk or posedge reset)
-    begin : Delay1_process
-      if (reset == 1'b1) begin
-        Delay1_out1 <= 22'sb0000000000000000000000;
-      end
-      else begin
-        if (enb) begin
-          Delay1_out1 <= Delay_out1;
-        end
-      end
-    end
-
 
 
   assign Product2_cast = {1'b0, Constant2_out1};
@@ -126,19 +111,6 @@ module Integrator
 
 
 
-  always @(negedge clk or posedge reset)
-    begin : Delay2_process
-      if (reset == 1'b1) begin
-        Delay2_reg[0] <= 22'sb0000000000000000000000;
-        Delay2_reg[1] <= 22'sb0000000000000000000000;
-      end
-      else begin
-        if (enb) begin
-          Delay2_reg[0] <= Delay2_reg_next[0];
-          Delay2_reg[1] <= Delay2_reg_next[1];
-        end
-      end
-    end
 
   assign Delay2_out1 = Delay2_reg[1];
   assign Delay2_reg_next[0] = out_1;
