@@ -18,7 +18,9 @@ real ps=1.0/1024/1024;
 
 initial
 begin
-  $sdf_annotate("../Output/integrator.sdf", uut);
+//  $sdf_annotate("../Outputs/integrator.sdf", uut);
+//  $sdf_annotate("../Outputs/integrator_min.sdf", uut);
+//  $sdf_annotate("../Outputs/integrator_max.sdf", uut);
   out_file = $fopen ("result.txt");
   $readmemb("data.txt",mem);
   In=mem[0];

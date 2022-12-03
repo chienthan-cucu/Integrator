@@ -1,6 +1,6 @@
 # ####################################################################
 
-#  Created by Encounter(R) RTL Compiler RC14.27 - v14.20-s064_1 on Wed Nov 30 20:16:56 +0300 2022
+#  Created by Encounter(R) RTL Compiler RC14.27 - v14.20-s064_1 on Fri Dec 02 17:45:25 +0300 2022
 
 # ####################################################################
 
@@ -121,5 +121,5 @@ set_dont_use [get_lib_cells D_CELLS_5V_LP5MOS_MOS5_fast_3_60V_m40C/FEED25_5V]
 set_dont_use [get_lib_cells D_CELLS_5V_LP5MOS_MOS5_fast_3_60V_m40C/SIGNALHOLD_5V]
 set_dont_use [get_lib_cells D_CELLS_5V_LP5MOS_MOS5_fast_3_60V_m40C/MPROBEBU_5VX8]
 set_dont_use [get_lib_cells D_CELLS_5V_LP5MOS_MOS5_fast_3_60V_m40C/MPROBE_5V]
-set_clock_uncertainty -hold 1.0 [get_ports clk]
-set_clock_uncertainty -setup 1.0 [get_ports clk]
+set_clock_uncertainty -hold 0.2 [get_ports clk]
+set_clock_uncertainty -setup 0.2 [get_ports clk]

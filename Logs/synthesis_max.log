@@ -1,8 +1,8 @@
 Checking out license 'RTL_Compiler_Ultra'... (0 seconds elapsed)
 License 'RTL_Compiler_Ultra' (main version: 14.2, alternate version: 14.2) checkout failed.
-Checking out license 'Genus_Synthesis'... (1 second elapsed)
+Checking out license 'Genus_Synthesis'... (0 seconds elapsed)
 Reading GUI preferences file '/home/student11/.cadence/rc.gui'.
-Finished loading tool scripts (6 seconds elapsed)
+Finished loading tool scripts (5 seconds elapsed)
 
                        Cadence Encounter(R) RTL Compiler
           Version RC14.27 - v14.20-s064_1 (64-bit), built Feb 26 2016
@@ -11,7 +11,7 @@ Finished loading tool scripts (6 seconds elapsed)
 Copyright notice: Copyright 1997-2015 Cadence Design Systems, Inc. All rights 
 reserved worldwide. 
 
-WARNING: This version of RC is 2469 days old.
+WARNING: This version of RC is 2471 days old.
          Visit downloads.cadence.com for the latest release of RC.
 
 
@@ -124,8 +124,8 @@ called '~/.cadence/.synth_init'.
 Send us feedback at rc_feedback@cadence.com.
 ================================================================================
 
-Sourcing '../Scripts/integrator_syn_max.tcl' (Wed Nov 30 20:17:16 +0300 2022)...
-Sourcing '../Scripts/XFAB_slow.tcl' (Wed Nov 30 20:17:16 +0300 2022)...
+Sourcing '../Scripts/integrator_syn_max.tcl' (Fri Dec 02 17:45:41 +0300 2022)...
+Sourcing '../Scripts/XFAB_slow.tcl' (Fri Dec 02 17:45:41 +0300 2022)...
   Setting attribute of root '/': 'lib_search_path' = /Cadence/Libs/X_FAB/XKIT/xt018/diglibs/D_CELLS_5V/v5_0/liberty_LP5MOS_MOS5/v5_0_0/PVT_3_30V_range
 
   Message Summary for Library /Cadence/Libs/X_FAB/XKIT/xt018/diglibs/D_CELLS_5V/v5_0/liberty_LP5MOS_MOS5/v5_0_0/PVT_3_30V_range/D_CELLS_5V_LP5MOS_MOS5_slow_3_00V_175C.lib:
@@ -364,7 +364,7 @@ Multi-threaded Virtual Mapping    (4 threads per ST process, 4 of 8 CPUs usable)
  
 Global mapping target info
 ==========================
-Cost Group 'clk' target slack:  1449 ps
+Cost Group 'clk' target slack:  1473 ps
 Target path end-point (Pin: Delay2_reg_reg[0][21]/d)
 
 Multi-threaded Technology Mapping (4 threads per ST process, 4 of 8 CPUs usable)
@@ -380,12 +380,12 @@ Operation                   Area   Slacks
 
     Cost Group            Target    Slack    Clock
 --------------------------------------------------
-           clk              1449    10685    50000 
+           clk              1473    11485    50000 
 
  
 Global incremental target info
 ==============================
-Cost Group 'clk' target slack:   960 ps
+Cost Group 'clk' target slack:   976 ps
 Target path end-point (Pin: Delay2_reg_reg[0][21]/D (DFRRQ_5VX1/D))
 
  
@@ -400,7 +400,7 @@ Operation                   Area   Slacks
 
     Cost Group            Target    Slack    Clock
 --------------------------------------------------
-           clk               960     9916    50000 
+           clk               976    10716    50000 
 
 Info    : 'Conformal LEC14.2-p100' or later builds is recommended for verification. [WDO-600]
         : The use of 'Conformal LEC14.2-p100' or later builds is recommended to get better verification results.
@@ -520,12 +520,12 @@ Operation                   Area   Slacks      Slack    Trans      Cap   Fanout
            undup         0  (        0 /        0 )  0.00
          rem_buf         0  (        0 /        0 )  0.00
          rem_inv         0  (        0 /        0 )  0.00
-        merge_bi         3  (        3 /        3 )  0.02
+        merge_bi         3  (        3 /        3 )  0.01
       rem_inv_qb         0  (        0 /        0 )  0.00
-        io_phase         1  (        1 /        1 )  0.01
-       gate_comp        23  (       23 /       23 )  0.14
-       gcomp_mog         3  (        3 /        3 )  0.08
-       glob_area        26  (        0 /       26 )  0.01
+        io_phase         1  (        1 /        1 )  0.00
+       gate_comp        23  (       23 /       23 )  0.06
+       gcomp_mog         3  (        3 /        3 )  0.04
+       glob_area        26  (        0 /       26 )  0.00
        area_down         0  (        0 /        0 )  0.00
   gate_deco_area         0  (        0 /        0 )  0.00
          rem_buf         0  (        0 /        0 )  0.00
@@ -613,8 +613,8 @@ Operation                   Area   Slacks      Slack    Trans      Cap   Fanout
         merge_bi         0  (        0 /        0 )  0.00
       rem_inv_qb         0  (        0 /        0 )  0.00
         io_phase         0  (        0 /        0 )  0.00
-       gate_comp         0  (        0 /        0 )  0.02
-       gcomp_mog         0  (        0 /        0 )  0.04
+       gate_comp         0  (        0 /        0 )  0.01
+       gcomp_mog         0  (        0 /        0 )  0.02
        glob_area        26  (        0 /       26 )  0.00
        area_down         0  (        0 /        0 )  0.00
   gate_deco_area         0  (        0 /        0 )  0.00
@@ -782,8 +782,8 @@ Operation                   Area   Slacks      Slack    Trans      Cap   Fanout
         merge_bi         0  (        0 /        0 )  0.00
       rem_inv_qb         0  (        0 /        0 )  0.00
         io_phase         0  (        0 /        0 )  0.00
-       gate_comp         0  (        0 /        0 )  0.02
-       gcomp_mog         0  (        0 /        0 )  0.04
+       gate_comp         0  (        0 /        0 )  0.01
+       gcomp_mog         0  (        0 /        0 )  0.02
        glob_area        26  (        0 /       26 )  0.00
        area_down         0  (        0 /        0 )  0.00
   gate_deco_area         0  (        0 /        0 )  0.00
@@ -872,8 +872,8 @@ Operation                   Area   Slacks      Slack    Trans      Cap   Fanout
         merge_bi         0  (        0 /        0 )  0.00
       rem_inv_qb         0  (        0 /        0 )  0.00
         io_phase         0  (        0 /        0 )  0.00
-       gate_comp         0  (        0 /        0 )  0.02
-       gcomp_mog         0  (        0 /        0 )  0.04
+       gate_comp         0  (        0 /        0 )  0.01
+       gcomp_mog         0  (        0 /        0 )  0.02
        glob_area        26  (        0 /       26 )  0.00
        area_down         0  (        0 /        0 )  0.00
   gate_deco_area         0  (        0 /        0 )  0.00

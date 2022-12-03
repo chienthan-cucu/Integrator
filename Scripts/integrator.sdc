@@ -13,12 +13,10 @@ set_units -capacitance 1.0pF;
 #***********************************************************************************
 # Create Clock
 #*********************************************************************************** 		
-create_clock -name {clk} -period 50.000 -waveform { 0.000 25.000 } [get_ports {clk}]
+create_clock -name {clk} -period 50 -waveform { 0 25 } [get_ports {clk}]
 #***********************************************************************************
 # Set Clock Uncertainty
 #***********************************************************************************
-set_clock_uncertainty -hold 1 [get_ports {clk}]
-set_clock_uncertainty -setup 1 [get_ports {clk}]  
-#***********************************************************************************
-
+set_clock_uncertainty -hold 0.2 [get_ports {clk}]
+set_clock_uncertainty -setup 0.2 [get_ports {clk}]  
 

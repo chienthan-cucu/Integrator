@@ -140,6 +140,8 @@ timeDesign -signoff -hold -pathReports -slackReports -numPaths 50 -prefix Integr
 all_hold_analysis_views 
 all_setup_analysis_views 
 write_sdf -view TYPview ../Outputs/integrator.sdf
+#write_sdf -view MINview ../Outputs/integrator_min.sdf
+#write_sdf -view MAXview ../Outputs/integrator_max.sdf
 saveNetlist ../Outputs/netlist.v -includePhysicalCell {FEED7_5V FEED5_5V FEED3_5V FEED2_5V FEED25_5V FEED1_5V FEED15_5V}
 global dbgLefDefOutVersion
 set dbgLefDefOutVersion 5.8
