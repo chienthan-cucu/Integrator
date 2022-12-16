@@ -11,19 +11,21 @@ reg  [21:0]    In=22'b0;
 
 wire  [21:0]    Out; 
 reg  [21:0]    mem[2409:0]; 
-parameter clk_period = 10; 
+reg  [21:0]    mem2[2409:0];
+parameter clk_period = 50; 
+
 integer i=0;
 integer out_file;
-real ps=1.0/1024/1024;
+reg [21:0] out_t=22'b0;
+reg [21:0] Diff = 22'b0;
 
 initial
 begin
-//  $sdf_annotate("../Outputs/integrator.sdf", uut);
-//  $sdf_annotate("../Outputs/integrator_min.sdf", uut);
-//  $sdf_annotate("../Outputs/integrator_max.sdf", uut);
-  out_file = $fopen ("result.txt");
+  $sdf_annotate("../Outputs/integrator.sdf", uut);
   $readmemb("data.txt",mem);
-  In=mem[0];
+  $readmemb("result.txt",mem2);
+
+
 end
    
 always 
@@ -34,7 +36,7 @@ begin : clk_process
    #( clk_period / 2 ); 
 end
 
-always@(negedge clk) begin
+always@(negedge clk, posedge reset) begin
     if (reset == 1'b1) begin
         i=0;
       end
@@ -42,18 +44,26 @@ always@(negedge clk) begin
             i=i+1;
     end    
     In <= mem[i];
+    out_t<=mem2[i];
+end
+
+always @(posedge clk)
+begin
+	if (reset)
+		Diff <= 22'd0;
+	else begin
+		Diff <= out_t - Out;
+	end
 end
 
 always
 begin : stim_proc
 #10 reset=1;
 #10 reset=0;
-#24100 $finish;
+#100000 $finish;
 end   
-always@(posedge clk) begin
-    $fdisplay (out_file,"%f", $signed(Out)*ps);
-//    $fdisplayb (out_file, uut.Out);
-end
+
+
 
 Integrator uut(clk, reset,  In, Out);
 
