@@ -1,15 +1,3 @@
-### Project name: Integrator
-### Author: Phan Van Chien
-### Technology: X-FAB 180nm CMOS, XT018 1243
-### Library: D_CELLS_5V, 3.3 V
-### Tools: Cadence Encounter 14.28
-###
-### Stage: Place & Route.
-### File description: TCL script for Place & Route performing
-###
-### Work Directory: ../Encounter
-### Run command: Encounter ../Scripts/integrator_PaR.tcl
-
 set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
 suppressMessage ENCEXT-2799
 win
@@ -53,17 +41,6 @@ floorPlan -fplanOrigin center -site core_5v -r 0.965442930809 0.700001 20.0 20.0
 uiSetTool select
 getIoFlowFlag
 fit
-clearGlobalNets
-globalNetConnect VDD -type pgpin -pin vdd5 -inst * -module {}
-globalNetConnect VDD -type tiehi -pin vdd5 -inst * -module {}
-globalNetConnect VDD -type tielo -pin vdd5 -inst * -module {}
-clearGlobalNets
-globalNetConnect VDD -type pgpin -pin vdd5 -inst * -module {}
-globalNetConnect VDD -type tiehi -pin vdd5 -inst * -module {}
-globalNetConnect VDD -type tielo -pin vdd5 -inst * -module {}
-globalNetConnect VSS -type pgpin -pin gnd -inst * -module {}
-globalNetConnect VSS -type tiehi -pin gnd -inst * -module {}
-globalNetConnect VSS -type tielo -pin gnd -inst * -module {}
 clearGlobalNets
 globalNetConnect VDD -type pgpin -pin vdd5 -inst * -module {}
 globalNetConnect VDD -type tiehi -pin vdd5 -inst * -module {}
@@ -140,8 +117,6 @@ timeDesign -signoff -hold -pathReports -slackReports -numPaths 50 -prefix Integr
 all_hold_analysis_views 
 all_setup_analysis_views 
 write_sdf -view TYPview ../Outputs/integrator.sdf
-#write_sdf -view MINview ../Outputs/integrator_min.sdf
-#write_sdf -view MAXview ../Outputs/integrator_max.sdf
 saveNetlist ../Outputs/netlist.v -includePhysicalCell {FEED7_5V FEED5_5V FEED3_5V FEED2_5V FEED25_5V FEED1_5V FEED15_5V}
 global dbgLefDefOutVersion
 set dbgLefDefOutVersion 5.8
