@@ -42,5 +42,3 @@ Synthesis
 	RTL_Compiler ../Scripts/integrator_syn_typ.tcl
 	RTL_Compiler ../Scripts/integrator_syn_min.tcl
 	RTL_Compiler ../Scripts/integrator_syn_max.tcl
-Design layout
-	Encounter ../Scripts/integrator_PaR.tcl
