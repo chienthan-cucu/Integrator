@@ -4,10 +4,10 @@
 ### Library: D_CELLS_5V, 3.3 V
 ### Description: Integrate the input value with a resolution of 22 bits
 
+
 - Folder Logs contains logs files generated during synthesis and topology generation: 
 
 	+synthesis_typ.log : Logs files for typical case
-
 	+synthesis_min.log : Logs files for min case
 
 	+synthesis_max.log : Logs files for max case
@@ -16,7 +16,6 @@
 - Folder Outputs contains all generated files:
 
 	+integrator.def :  Design Exchange Format (DEF) file
-
 	+integrator.sdf	:  Standard Delay Format (SDF) file
 
 	+netlist.v      :  netlists for simulation and physical one
