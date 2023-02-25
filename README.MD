@@ -1,9 +1,9 @@
 
 
- - Folder Logs contains logs files generated during synthesis and topology generation: 
+ + Folder Logs contains logs files generated during synthesis and topology generation: 
 
-	+synthesis_typ.log : Logs files for typical case
-	+synthesis_min.log : Logs files for min case
+-synthesis_typ.log : Logs files for typical case
+-synthesis_min.log : Logs files for min case
 
 	+synthesis_max.log : Logs files for max case
 
