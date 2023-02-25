@@ -1,8 +1,8 @@
-### Project name: Integrator
-### Author: Phan Van Chien
-### Technology: X-FAB 180nm CMOS, XT018 1243
-### Library: D_CELLS_5V, 3.3 V
-### Description: Integrate the input value with a resolution of 22 bits
+Project name: Integrator
+Author: Phan Van Chien
+Technology: X-FAB 180nm CMOS, XT018 1243
+Library: D_CELLS_5V, 3.3 V
+Description: Integrate the input value with a resolution of 22 bits
 
 -Folder Logs contains logs files generated during synthesis and topology generation: 
 +synthesis_typ.log : Logs files for typical case
