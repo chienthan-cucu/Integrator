@@ -11,13 +11,13 @@
 + *layout.log*        : Logs files for topology generation 
 + *Folder Synthesis*: Synth.v, Synth_out.sdc, Synth_min.v, Synth_out_min.sdc, Synth_max.v, Synth_out_max.sdc
 
- **2. Folder Outputs contains all generated files:**
+**2. Folder Outputs contains all generated files:**
 + *integrator.def* :  Design Exchange Format (DEF) file
 + *integrator.sdf*	:  Standard Delay Format (SDF) file
 + *netlist.v*      :  netlists for simulation and physical one
 + *Folder Synthesis*: Synth.v, Synth_out.sdc, Synth_min.v, Synth_out_min.sdc, Synth_max.v, Synth_out_max.sdc
 
- **3. Folder Reports contains all reports from both synthesis and layout design stages:**
+**3. Folder Reports contains all reports from both synthesis and layout design stages:**
 + *Synth_area_report*     : Reports area for typical case
 + *Synth_area_report_min* : Reports area for min case
 + *Synth_area_report_max* : Reports area for max case
@@ -26,7 +26,7 @@
 + *Synth_timing_report_max* : Reports timing for max case
 + *Folder timingReports*: contains all reports layout design stages: Hold and Setup
 
- **4. Folder Scripts contains all TCL scripts, SDC files, and I/O assignment used for the design:**
+**4. Folder Scripts contains all TCL scripts, SDC files, and I/O assignment used for the design:**
 + *XFAB_fast.tcl* : TCL file with technology libraries for fast case 
 + *XFAB_typ.tcl*  : TCL file with technology libraries for typical case
 + *XFAB_slow.tcl* : : TCL file with technology libraries for slow case
@@ -38,12 +38,12 @@
 + *integrator.sdc* : Synosys Design Constraint
 + *Pinmap*:   IO Assignment file
 
- **5. Folder Source contains all source files:**
+**5. Folder Source contains all source files:**
 + *integrator.v* : Source of integrator block
 + *integrator_tb.v*: Testbench
 + *data.txt*: Input for testbench
 
- **6. Process:**
+**6. Process:**
 
  + *Synthesis:*
  	+ RTL_Compiler ../Scripts/integrator_syn_typ.tcl
